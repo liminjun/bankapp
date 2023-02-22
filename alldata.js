@@ -4,9 +4,13 @@ function AllData(){
   const userData = ctx.users
   const showUsers = userData.map((user, index) => {
     return (
-      <div key={index}>
-        <h5>{user.name} {user.email} {user.password} {user.balance}</h5>
-      </div>
+      <tr key={index}>
+        <th scope="row">{1+index}</th>
+        <td>{user.name}</td>
+        <td>{user.email}</td>
+        <td>{user.password}</td>
+        <td>{user.balance}</td>
+      </tr>
     );
   });
 
@@ -14,7 +18,21 @@ function AllData(){
     <>
     <h5>All Data in Store</h5>
     {/* {JSON.stringify(ctx)}<br/> */}
-    {showUsers}
+    <table className="table">
+      <thead>
+        <tr>
+          <td scope="col">#</td>
+          <td scope="col">username</td>
+          <td scope="col">email</td>
+          <td scope="col">password</td>
+          <td scope="col">balance</td>
+        </tr>
+      </thead>
+      <tbody>
+      {showUsers}
+      </tbody>
+    </table>
+    
     </>
   );
 }
